@@ -14,4 +14,10 @@ const connectToDB = () =>
     .then(() => console.log("---- connected to mongodb"))
     .catch((error) => console.log("---- Unable to connect to DB", error));
 
-module.exports = connectToDB;
+const disconnectDB = () =>
+  mongoose
+    .disconnect()
+    .then(() => console.log("---- mongodb disconnect"))
+    .catch((error) => console.log("---- Unable to disconnect DB", error));
+
+module.exports = { connectToDB, disconnectDB };
